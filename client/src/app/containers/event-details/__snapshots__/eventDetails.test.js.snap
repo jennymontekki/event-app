@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing eventDetails actions action adds new message from chat 1`] = `
+Object {
+  "payload": Object {
+    "message": "new message 1",
+    "roomId": 1,
+    "updatedAt": "2018-05-29T12:06:54.691Z",
+    "user": Object {
+      "name": "user1",
+    },
+  },
+  "type": "ACTION_EVENT_NEW_MESSAGE",
+}
+`;
+
+exports[`testing eventDetails actions action changes loading from false to true 1`] = `
+Object {
+  "payload": null,
+  "type": "ACTION_EVENT_DETAILS_START_LOADING",
+}
+`;
+
+exports[`testing eventDetails actions action notifies user that authentication is required 1`] = `
+Object {
+  "meta": Object {
+    "notify": Object {
+      "message": "Sign in to subscribe",
+      "type": "warning",
+    },
+  },
+  "payload": null,
+  "type": "NOTIFICATION",
+}
+`;

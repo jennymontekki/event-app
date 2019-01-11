@@ -1,0 +1,5 @@
+div.alert__message {
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--color-red-light);
+}

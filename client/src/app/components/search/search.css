@@ -1,0 +1,47 @@
+div.search__container {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.search__container .search__list {
+  display: none;
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  max-height: 18.45rem;
+  overflow-y: auto;
+}
+
+.search__list .search__item {
+  padding: 0;
+}
+
+.search__item a {
+  display: block;
+  padding: .75rem 1.25rem;
+  transition: color .2s, background-color .4s;
+}
+
+.search__container .search__list .search__no-items {
+  padding: .4rem .35rem;
+}
+
+.search__item a:hover {
+  color: var(--color-white);
+  background-color: deepskyblue;
+}
+
+.search__input:focus + .search__list, .search__list:active {
+  display: block;
+}
+
+.search__input:focus + .search__list .search__no-items {
+  display: block;
+}
+
+.search__input-icon {
+  position: absolute;
+  top: .4rem;
+  right: .5rem;
+}

@@ -1,0 +1,46 @@
+.add-edit-event-page {
+  padding-top: var(--padding-top-page);
+  padding-bottom: var(--padding-bottom-page);
+  min-height: calc(100vh - var(--footer-main-and-header-main-height));
+}
+
+div.add-edit-event-page {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.add-edit-event-page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.form-component {
+  box-shadow: var(--shadow-dark);
+  border: 1px solid var(--color-grey-light);
+  padding: 1rem;
+}
+
+.form-submit-btn {
+  margin-bottom:  1rem;
+}
+
+.form-datepicker > div > div.react-datepicker-wrapper, .form-datepicker > div > div.react-datepicker-wrapper > div.react-datepicker__input-container {
+  width: 100%;
+}
+
+.add-edit-event-description {
+  min-height: 8rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .add-edit-event-input-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .add-edit-event__date, .add-edit-event__category {
+    width: 47%;
+    flex: 0 0 47%;
+  }
+}

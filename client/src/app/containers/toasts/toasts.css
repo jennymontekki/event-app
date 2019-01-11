@@ -1,0 +1,26 @@
+.toast__list {
+  position: fixed;
+  z-index: 1000;
+  right: 0;
+}
+
+.toast__list .toast__item-outer {
+  cursor: pointer;
+  max-width: 25rem;
+  min-width: 15rem;
+  padding: 0;
+  margin-bottom: 1rem;
+  border: none;
+  box-shadow: var(--shadow-light);
+}
+
+.toast__item-outer .toast__item-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+}
+
+.toast__icon {
+  margin-right: .4rem;
+}

@@ -1,0 +1,32 @@
+span.navigation__badge-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  background-color: var(--color-green-dark);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+span.navigation__badge-inner {
+  margin-left: .4rem;
+  padding: .4rem .3rem;
+  color: var(--color-yellow-dark);
+  border-radius: 50%;
+  background-color: var(--color-blue-dark);
+  font-size: .8rem;
+}
+
+a.navigation__active-link {
+  color: deepskyblue !important;
+}
+
+a.navigation__link-item, button.navigation__link-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation__link-icon {
+  margin-right: .4rem;
+}

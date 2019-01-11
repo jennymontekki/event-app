@@ -1,0 +1,168 @@
+.profile__page {
+  padding-top: var(--padding-top-page);
+  min-height: calc(100vh - var(--footer-main-and-header-main-height));
+  display: flex;
+}
+
+li.profile-navigation__messages-tab a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li.profile-navigation__messages-tab a span {
+  border-radius: 50%;
+  margin-left: .5rem;
+  padding: .5rem .4rem;
+}
+
+div.profile-messages__container {
+  margin-bottom: 1rem;
+}
+
+div.profile-message__container-outer {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  padding: 1rem;
+}
+
+a.profile-message__link {
+  flex-grow: 1;
+}
+
+div.profile-message__container-inner {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+span.profile-message__badge {
+  margin-left: .5rem;
+  padding: .8rem .4rem;
+}
+
+div.profile-message__item {
+  text-align: center;
+  flex-grow: 1;
+}
+
+div.profile-message__delete-btn {
+  margin-left: .5rem;
+  padding: .4rem .8rem;
+  color: var(--color-red-light);
+  border: solid var(--color-yellow-light) 1px;
+  transition: border .4s, background-color .4s, color .4s;
+  border-radius: 50%;
+}
+
+div.profile-message__delete-btn:hover {
+  cursor: pointer;
+  color: var(--color-red-dark);
+  background-color: var(--color-yellow-light);
+  border: solid var(--color-yellow-dark) 1px;
+}
+
+li.profile-navigation__item {
+  border-top: 1px solid #000;
+  width: 12rem;
+  position: relative;
+  z-index: 10;
+  transition: color .4s .2s;
+  margin: 0 !important;
+}
+
+li.profile-navigation__item:last-child {
+  border-bottom: 1px solid #000;
+}
+
+li.profile-navigation__item:hover, li.profile-navigation__active-item {
+  color: #fff !important;
+}
+
+li.profile-navigation__item::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: deepskyblue;
+  transform: scaleY(0);
+  transition: transform .2s,
+              width .4s cubic-bezier(1,0,0,1) .2s,
+              background-color .1s;
+
+}
+
+li.profile-navigation__active-item::before, li.profile-navigation__item:hover::before {
+  transform: scaleY(1);
+  width: 100%;
+}
+
+li.profile-navigation__item:hover::before {
+  border-right: 8px solid lightgrey;
+}
+
+a.profile-navigation__link {
+  position: relative;
+  z-index: 10;
+}
+
+.profile-mobile-menu__expand-btn {
+  width: 2.5rem;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  right: -2.5rem;
+  background-color: deepskyblue;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.profile-mobile-menu__icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(100%, -50%);
+}
+
+div.profile-navigation__expanded {
+  transform: translateX(12rem);
+}
+
+div.profile-navigation__mobile-menu {
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: calc(50vh - var(--footer-main-and-header-main-height) / 2 - var(--padding-top-page));
+  transform: translate(0 -50%);
+  left: -12rem;
+  transition: transform .4s ease-in-out;
+}
+
+ul.profile-navigation__desktop-menu, div.profile-navigation__mobile-menu ul {
+ background-color: whitesmoke;
+}
+
+@media only screen and (max-width: 991px) {
+  ul.profile-navigation__desktop-menu {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  div.profile-navigation__mobile-menu {
+    display: none;
+  }
+}
+
+.profile-navigation__new-msg {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

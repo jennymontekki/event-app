@@ -1,0 +1,61 @@
+{
+  "extends": ["eslint:recommended", "airbnb", "plugin:react/recommended"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "arrow-spacing": "error",
+    "eqeqeq": "error",
+    "generator-star-spacing": "error",
+    "no-duplicate-imports": "error",
+    "no-eq-null": "error",
+    "no-undefined": "error",
+    "no-useless-computed-key": "error",
+    "no-useless-constructor": "error",
+    "no-useless-rename": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "prefer-template": "error",
+    "rest-spread-spacing": "error",
+    "semi": "error",
+    "template-curly-spacing": "error",
+    "yield-star-spacing": "error",
+    "linebreak-style": "off",
+    "comma-dangle": "off",
+    "arrow-parens": "off",
+    "arrow-body-style": "off",
+    "curly": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "no-underscore-dangle": "off",
+    "max-len": "warn",
+    "jsx-a11y/anchor-is-valid": "off",
+    "import/prefer-default-export": "off",
+    "no-plusplus": "off",
+    "no-shadow": "off",
+    "no-return-assign": "off",
+    "function-paren-newline": "off",
+    "react/forbid-prop-types": "off",
+    "object-curly-newline": "off",
+    "react/require-default-props": "off",
+    "react/jsx-filename-extension": "warn",
+    "no-else-return": "off",
+    "prefer-promise-reject-errors": "off",
+    "no-multi-assign": "warn",
+    "no-unused-expressions": "warn"
+  }
+}

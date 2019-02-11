@@ -8,7 +8,9 @@ import * as eventDetailsActions from './eventDetailsActions';
 import eventDetailsToastsFactory from './eventDetailsToastsFactory';
 
 global.window = {};
-window.localStorage = global.localStorage;
+if (!window.localStorage) {
+  window.localStorage = global.localStorage;
+}
 
 const newMessageObj = {
   roomId: 1,

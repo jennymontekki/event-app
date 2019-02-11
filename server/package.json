@@ -7,7 +7,7 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "debug": "node --debug-brk --inspect index.js",
-    "test": "mocha tests/**/*.test.js",
+    "test": "mocha --timeout 10000 tests/**/*.test.js",
     "test:w": "nodemon --exec 'npm test'"
   },
   "author": "",
@@ -22,13 +22,13 @@
     "nodemailer": "^4.6.4",
     "sequelize": "^4.37.6",
     "socket.io": "^2.1.1",
-    "sqlite3": "^4.0.0",
+    "sqlite3": "^4.0.6",
     "xoauth2": "^1.2.0"
   },
   "devDependencies": {
     "expect": "^23.1.0",
-    "mocha": "^3.0.2",
-    "nodemon": "^1.17.3",
-    "supertest": "^2.0.0"
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.10",
+    "supertest": "^3.4.2"
   }
 }

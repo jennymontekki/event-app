@@ -26,50 +26,52 @@ describe('testing eventDetails component', () => {
   const unSubscribedUser = { name: 'user3' };
   const unathenticatedUser = null;
 
+  const eventHandlers = { onSubscribe: () => {}, onDeleteEvent: () => {} };
+
   const propsSubscribe = { event, user: unSubscribedUser };
   const propsUnsubscribe = { event: { ...event, visitors: [subscribedVisitor] }, user: subscribedUser };
   const propsHost = { event, user: userHost };
   const unathenticatedProps = { event, user: unathenticatedUser };
   const propsRenderVisitors = { event: { ...event, visitors: subscribedVisitors }, user: userHost };
-  const propsChat = { user: userHost, messages: [{ message: 'hello', updatedAt: '2018-05-29T12:06:54.691Z', user: userHost }, { message: 'world', updatedAt: '2018-05-29T12:13:56.720Z', user: userHost }] };
+  const propsChat = { roomId: 1, user: userHost, messages: [{ message: 'hello', updatedAt: '2018-05-29T12:06:54.691Z', user: userHost }, { message: 'world', updatedAt: '2018-05-29T12:13:56.720Z', user: userHost }] };
 
   it('subscribe button shows up', () => {
-    const wrapper = shallow(<EventDetailsComponent {...propsSubscribe} />);
+    const wrapper = shallow(<EventDetailsComponent {...eventHandlers} {...propsSubscribe} />);
     const buttons = wrapper.find('.event-details-card__info-area-subscribe-btn');
     expect(buttons).toHaveLength(1);
     expect(buttons.childAt(0).text()).toBe('subscribe');
   });
 
   it('unsubscribe button shows up', () => {
-    const wrapper = shallow(<EventDetailsComponent {...propsUnsubscribe} />);
+    const wrapper = shallow(<EventDetailsComponent {...eventHandlers} {...propsUnsubscribe} />);
     const buttons = wrapper.find('.event-details-card__info-area-subscribe-btn');
     expect(buttons).toHaveLength(1);
     expect(buttons.childAt(0).text()).toBe('unsubscribe');
   });
 
   it('control buttons for host show up', () => {
-    const wrapper = shallow(<EventDetailsComponent {...propsHost} />);
+    const wrapper = shallow(<EventDetailsComponent {...eventHandlers} {...propsHost} />);
     const controlButtons = wrapper.find('.event-details-card__info-area-host-btn');
     expect(controlButtons).toHaveLength(2);
   });
 
   it('chat window shows up for host user', () => {
-    const wrapper = shallow(<EventDetailsComponent {...propsHost} />);
+    const wrapper = shallow(<EventDetailsComponent {...eventHandlers} {...propsHost} />);
     expect(wrapper.find(ChatWindowComponentRedux).exists()).toEqual(true);
   });
 
   it('chat window shows up for subscribed users', () => {
-    const wrapper = shallow(<EventDetailsComponent {...propsUnsubscribe} />);
+    const wrapper = shallow(<EventDetailsComponent {...eventHandlers} {...propsUnsubscribe} />);
     expect(wrapper.find(ChatWindowComponentRedux).exists()).toEqual(true);
   });
 
   it('chat window is hidden for unsubscribed user', () => {
-    const wrapper = shallow(<EventDetailsComponent {...propsSubscribe} />);
+    const wrapper = shallow(<EventDetailsComponent {...eventHandlers} {...propsSubscribe} />);
     expect(wrapper.find(ChatWindowComponentRedux).exists()).toEqual(false);
   });
 
   it('chat window is hidden for unathenticated user', () => {
-    const wrapper = shallow(<EventDetailsComponent {...unathenticatedProps} />);
+    const wrapper = shallow(<EventDetailsComponent {...eventHandlers} {...unathenticatedProps} />);
     expect(wrapper.find(ChatWindowComponentRedux).exists()).toEqual(false);
   });
 
@@ -79,7 +81,7 @@ describe('testing eventDetails component', () => {
   });
 
   it('visitors section displays visitors', () => {
-    const wrapper = shallow(<EventDetailsComponent {...propsRenderVisitors} />);
+    const wrapper = shallow(<EventDetailsComponent {...eventHandlers} {...propsRenderVisitors} />);
     expect(wrapper.find('.event-details-visitors').children()).toHaveLength(propsRenderVisitors.event.visitors.length);
   });
 

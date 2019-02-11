@@ -6,22 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Setup Server Dependencies
+          name: Setup Server Dependencies and Run Tests
           command: |
             cd server
             npm install
+            npm test
       - run:
-          name: Run Server Tests
-          command: |
-            cd server
-            npm run test
-      - run:
-          name: Setup Client Dependencies
+          name: Setup Client Dependencies and Run Tests
           command: |
             cd client
             npm install
-      - run:
-          name: Run Client Tests
-          command: |
-            cd server
-            npm run test
+            npm test

@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: go to server folder
+          command: cd server
+      - run:
+          name: Setup Server Dependencies
+          command: npm install
+      - run:
+          name: go to client folder
+          command: cd ../client
+      - run:
+          name: Setup Client Dependencies
+          command: npm install

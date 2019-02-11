@@ -6,9 +6,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Setup Test Dependencies
-          command: npm install
-      - run:
           name: go to server folder
           command: cd server
       - run:
@@ -16,7 +13,7 @@ jobs:
           command: npm install
       - run:
           name: go to client folder
-          command: cd ../client
+          command: cd client
       - run:
           name: Setup Client Dependencies
           command: npm install

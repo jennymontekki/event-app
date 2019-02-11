@@ -11,7 +11,17 @@ jobs:
             cd server
             npm install
       - run:
+          name: Run Server Tests
+          command: |
+            cd server
+            npm run test
+      - run:
           name: Setup Client Dependencies
           command: |
             cd client
             npm install
+      - run:
+          name: Run Client Tests
+          command: |
+            cd server
+            npm run test

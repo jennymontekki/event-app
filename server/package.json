@@ -7,7 +7,7 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "debug": "node --debug-brk --inspect index.js",
-    "test": "mocha --timeout 10000 tests/**/*.test.js",
+    "test": "mocha --timeout 10000 --exit tests/**/*.test.js",
     "test:w": "nodemon --exec 'npm test'"
   },
   "author": "",

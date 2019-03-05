@@ -27,7 +27,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Deploy to EC2
-          command: aws deploy create-deployment --application-name eventapp
+          command: aws deploy create-deployment --application-name eventapp --region us-east-2c
 workflows:
   version: 2
   build-deploy:

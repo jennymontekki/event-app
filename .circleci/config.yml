@@ -1,4 +1,20 @@
 version: 2
+machine:
+  environment:
+    # We are defining the $AWS_CODE_DEPLOY_KEY and $AWS_CODE_DEPLOY_SECRET in the CircleCI Project Settings >
+    # AWS Permissions which automatically configure these for use via aws cli and are automatically read
+    # via aws-code-deploy.sh. Alternatively, these could be specified securely (not via project code) using 
+    # the CircleCI Environment Variables CircleCI control panel.
+    AWS_CODE_DEPLOY_REGION: us-east-2
+    AWS_CODE_DEPLOY_APPLICATION_NAME: "eventapp"
+    AWS_CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: "eventapp_Production"
+    AWS_CODE_DEPLOY_APP_SOURCE: $HOME/deploy
+    AWS_CODE_DEPLOY_S3_FILENAME: "${CIRCLE_BUILD_NUM}#${CIRCLE_SHA1:0:7}.zip"
+    AWS_CODE_DEPLOY_S3_BUCKET: eventapp-codedeploy-us-east-2
+    AWS_CODE_DEPLOY_S3_SSE: true
+    AWS_CODE_DEPLOY_REVISION_DESCRIPTION: "${CIRCLE_BRANCH} (#${CIRCLE_SHA1:0:7})"
+    AWS_CODE_DEPLOY_DEPLOYMENT_DESCRIPTION: "Deployed via CircleCI on $(date)"
+    AWS_CODE_DEPLOY_DEPLOYMENT_FILE_EXISTS_BEHAVIOR: "OVERWRITE"
 jobs:
   build:
     docker:
@@ -25,6 +41,9 @@ jobs:
       - run:
           name: Install awscli
           command: sudo pip install awscli
+      - run:
+          name: Install aws-code-deploy
+          command: npm install aws-code-deploy -g
       - run:
           name: Deploy to EC2
           command: aws deploy create-deployment --application-name eventapp --deployment-group-name eventapp_Production --region us-east-2

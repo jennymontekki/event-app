@@ -36,15 +36,14 @@ jobs:
             npm run build
   deploy:
     docker:
-      - image: circleci/python:3.6.4
       - image: circleci/node:10
     steps:
       - run:
           name: Install awscli
-          command: sudo pip install awscli
+          command: sudo apt-get install awscli
       - run:
           name: Install aws-code-deploy
-          command: sudo npm install aws-code-deploy -g
+          command: npm install aws-code-deploy -g
       - run:
           name: Deploy to EC2
           command: aws deploy create-deployment --application-name eventapp --deployment-group-name eventapp_Production --region us-east-2

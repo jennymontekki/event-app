@@ -43,7 +43,7 @@ jobs:
           command: sudo apt-get install awscli
       - run:
           name: Install aws-code-deploy
-          command: npm install aws-code-deploy -g
+          command: sudo npm install aws-code-deploy -g
       - run:
           name: Deploy to EC2
           command: aws deploy create-deployment --application-name eventapp --deployment-group-name eventapp_Production --region us-east-2
